@@ -1,0 +1,1 @@
+(()=>{chrome.tabs.onUpdated.addListener((r,e)=>{e.status==="loading"&&chrome.windows.getAll({populate:!0},d=>{d.forEach(i=>{i.tabs?.forEach(o=>{o.url===e.url&&o.id&&o.id!==r&&(console.log(o.url),chrome.tabs.remove(o.id))})})})});})();

@@ -1,0 +1,21 @@
+{
+  "name": "uniqtab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mkusaka/uniqtab.git",
+  "author": "mkusaka <hinoshita1992@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chrome": "^0.0.163",
+    "esbuild": "^0.13.13",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4",
+    "typesync": "^0.8.0"
+  },
+  "scripts": {
+    "build": "esbuild background.ts --bundle --target=chrome95 --minify --outfile=background.js",
+    "watch": "esbuild background.ts --bundle --target=chrome95 --watch --outfile=background.js",
+    "package": "rm -f pacakge.zip && yarn build && zip -r package.zip . -x '.git/**' './node_modules/**' 'yarn*' '*.ts' '.idea/**' 'tsconfig.json' 'package.json' '.gitignore'"
+  }
+}
