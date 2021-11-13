@@ -1,6 +1,11 @@
 name: release artifact
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*'
 
 jobs:
   build:
