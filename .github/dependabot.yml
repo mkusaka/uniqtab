@@ -1,0 +1,12 @@
+# docs: https://docs.github.com/ja/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # GitHub Actions の更新を平日毎日確認する
+      interval: "daily"
+    labels:
+      - "dependencies"
+    target-branch: main
