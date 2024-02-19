@@ -8,7 +8,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/chrome": "^0.0.244",
-    "esbuild": "^0.19.2",
+    "esbuild": "^0.20.1",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
     "typesync": "^0.11.1"
