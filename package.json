@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@types/chrome": "^0.0.266",
+    "@types/chrome": "^0.0.268",
     "esbuild": "^0.21.1",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
