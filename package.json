@@ -11,7 +11,7 @@
     "esbuild": "^0.24.0",
     "prettier": "^3.2.5",
     "typescript": "^5.6.2",
-    "typesync": "^0.12.1"
+    "typesync": "^0.14.3"
   },
   "scripts": {
     "build": "esbuild background.ts --bundle --target=chrome95 --minify --outfile=background.js",
