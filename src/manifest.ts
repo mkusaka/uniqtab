@@ -4,7 +4,8 @@ import packageJson from "../package.json";
 export default defineManifest({
   name: "uniqtab",
   version: packageJson.version,
-  description: "Close deduplicated tab.",
+  description:
+    "Automatically closes duplicate tabs, keeping only the latest one.",
   manifest_version: 3,
   background: {
     service_worker: "src/background.ts",

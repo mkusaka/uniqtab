@@ -1,12 +1,13 @@
 # uniqtab
 
-Chrome extension to automatically close duplicate tabs when the same URL is opened.
+Chrome extension that automatically closes old duplicate tabs when you open the same URL again, keeping only the latest one.
 
 ## Features
 
-- Automatically detects and closes duplicate tabs
+- Automatically closes existing tabs when you open a duplicate URL
 - Works across all browser windows
-- Lightweight and efficient background service
+- Keeps only the most recently opened tab
+- Lightweight background service with minimal resource usage
 
 ## Installation
 
