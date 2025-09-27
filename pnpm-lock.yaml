@@ -12,16 +12,16 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       '@types/chrome':
-        specifier: ^0.1.12
+        specifier: 0.1.12
         version: 0.1.12
       lefthook:
-        specifier: ^1.13.4
+        specifier: 1.13.4
         version: 1.13.4
       prettier:
-        specifier: ^3.2.5
+        specifier: 3.6.2
         version: 3.6.2
       typescript:
-        specifier: ^5.9.2
+        specifier: 5.9.2
         version: 5.9.2
       vite:
         specifier: 7.1.7
