@@ -5,17 +5,21 @@
   "repository": "https://github.com/mkusaka/uniqtab.git",
   "author": "mkusaka <hinoshita1992@gmail.com>",
   "license": "MIT",
+  "packageManager": "pnpm@10.16.1",
   "dependencies": {},
   "devDependencies": {
+    "@crxjs/vite-plugin": "2.2.0",
     "@types/chrome": "^0.0.266",
-    "esbuild": "^0.24.0",
     "prettier": "^3.2.5",
     "typescript": "^5.6.2",
-    "typesync": "^0.12.1"
+    "vite": "7.1.5"
   },
   "scripts": {
-    "build": "esbuild background.ts --bundle --target=chrome95 --minify --outfile=background.js",
-    "watch": "esbuild background.ts --bundle --target=chrome95 --watch --outfile=background.js",
-    "package": "rm -f pacakge.zip && yarn build && zip -r package.zip . -x '.git/**' './node_modules/**' 'yarn*' '*.ts' '.idea/**' 'tsconfig.json' 'package.json' '.gitignore'"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "package": "rm -f package.zip && pnpm build && cd dist && zip -r ../package.zip ."
   }
 }
