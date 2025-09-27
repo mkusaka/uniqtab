@@ -9,7 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "@crxjs/vite-plugin": "2.2.0",
-    "@types/chrome": "^0.0.266",
+    "@types/chrome": "^0.1.12",
     "prettier": "^3.2.5",
     "typescript": "^5.6.2",
     "vite": "7.1.5"
