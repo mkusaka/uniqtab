@@ -6,10 +6,10 @@
   "author": "mkusaka <hinoshita1992@gmail.com>",
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
-  "dependencies": {},
   "devDependencies": {
     "@crxjs/vite-plugin": "2.2.0",
     "@types/chrome": "^0.1.12",
+    "lefthook": "^1.13.4",
     "prettier": "^3.2.5",
     "typescript": "^5.9.2",
     "vite": "7.1.7"
@@ -20,6 +20,7 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "package": "rm -f package.zip && pnpm build && cd dist && zip -r ../package.zip ."
+    "package": "rm -f package.zip && pnpm build && cd dist && zip -r ../package.zip .",
+    "prepare": "lefthook install"
   }
 }
