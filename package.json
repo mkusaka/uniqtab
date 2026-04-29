@@ -5,7 +5,7 @@
   "repository": "https://github.com/mkusaka/uniqtab.git",
   "author": "mkusaka <hinoshita1992@gmail.com>",
   "license": "MIT",
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.33.2",
   "devDependencies": {
     "@crxjs/vite-plugin": "2.4.0",
     "@types/chrome": "0.1.40",
