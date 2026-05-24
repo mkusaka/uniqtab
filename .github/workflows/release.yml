@@ -1,13 +1,10 @@
 name: Release
-
 on:
   push:
     tags:
       - "v*"
-
 permissions:
   contents: write
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -16,7 +13,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
-
+          persist-credentials: false
       - name: Setup pnpm
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
         with:
@@ -30,17 +27,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
       - name: Build and package extension
         run: pnpm package
-
       - name: Get version from manifest.json
         id: version
         run: |
           VERSION=$(jq -r '.version' dist/manifest.json)
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           echo "Version: ${VERSION}"
-
       - name: Create release package
         run: |
           # Rename the package.zip created by pnpm package
@@ -52,26 +46,32 @@ jobs:
             -x "*node_modules*" \
             -x "*release-package*" \
             -x "*.zip"
-
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: |
-          gh release create "${{ github.ref_name }}" \
-            --title "Release ${{ github.ref_name }}" \
+          gh release create "$RELEASE_TAG" \
+            --title "Release $RELEASE_TAG" \
             --generate-notes \
-            uniqtab-v${{ steps.version.outputs.version }}.zip \
-            uniqtab-source-v${{ steps.version.outputs.version }}.zip
-
+            "uniqtab-v${RELEASE_VERSION}.zip" \
+            "uniqtab-source-v${RELEASE_VERSION}.zip"
       - name: Upload Release Assets Summary
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: |
           {
-            echo "### 📦 Release Created Successfully!"
+            echo "### Release Created Successfully!"
             echo ""
-            echo "**Version:** v${{ steps.version.outputs.version }}"
-            echo "**Tag:** ${{ github.ref_name }}"
+            echo "**Version:** v${RELEASE_VERSION}"
+            echo "**Tag:** ${RELEASE_TAG}"
             echo ""
             echo "**Assets:**"
-            echo "- \`uniqtab-v${{ steps.version.outputs.version }}.zip\` - Chrome Extension package"
-            echo "- \`uniqtab-source-v${{ steps.version.outputs.version }}.zip\` - Source code"
+            echo "- \`uniqtab-v${RELEASE_VERSION}.zip\` - Chrome Extension package"
+            echo "- \`uniqtab-source-v${RELEASE_VERSION}.zip\` - Source code"
           } >> "$GITHUB_STEP_SUMMARY"
+    permissions:
+      contents: write
+    timeout-minutes: 90
