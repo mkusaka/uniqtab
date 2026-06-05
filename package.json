@@ -9,7 +9,7 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "2.4.0",
     "@types/chrome": "0.1.42",
-    "lefthook": "2.1.8",
+    "lefthook": "2.1.9",
     "prettier": "3.8.3",
     "typescript": "6.0.3",
     "vite": "8.0.14"
