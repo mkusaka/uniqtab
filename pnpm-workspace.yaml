@@ -6,3 +6,6 @@ blockExoticSubdeps: true
 allowBuilds:
   esbuild: true
   lefthook: false
+minimumReleaseAgeExclude:
+  # Renovate security update: vite@8.1.6
+  - vite@8.1.6
