@@ -3,8 +3,10 @@ on:
   push:
     tags:
       - "v*"
-permissions:
-  contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+permissions: {}
 jobs:
   release:
     runs-on: ubuntu-latest
